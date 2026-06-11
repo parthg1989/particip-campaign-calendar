@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU Delegation Philippines — GenEU 2026 Campaign Calendar (Oct 2026 – Mar 2027)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --eu-navy:#003399; --eu-gold:#FFCC00; --eu-deep:#001A66; --eu-light:#E8EEFF;
+    --eu-mid:#4A6FD4; --text-dark:#12172B; --text-mid:#3D4B6E; --text-light:#7B89AF;
+    --section-bg:#F5F7FF;
+    --c-video:#003399;      /* main video */
+    --c-edit:#1A7AC4;       /* edit-downs */
+    --c-kol:#7B2FBE;        /* KOL waves */
+    --c-support:#1E8E6A;    /* support measures */
+    --c-event:#D98200;      /* activation events */
+    --c-ad:#C0392B;         /* paid ad flights */
+    --c-quiet:#9AA3BD;      /* quiet / no-go */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#F0F2FA;color:var(--text-dark);font-size:14px;line-height:1.6;}
+
+  /* COVER */
+  .cover{background:linear-gradient(135deg,var(--eu-deep) 0%,var(--eu-navy) 55%,#1A3A8F 100%);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:60px 40px;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;top:-120px;right:-120px;width:550px;height:550px;
+    background:radial-gradient(circle,rgba(255,204,0,0.07) 0%,transparent 70%);}
+  .cover-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--eu-gold);margin-bottom:20px;font-weight:600;}
+  .cover h1{font-family:'Playfair Display',serif;font-size:54px;font-weight:900;color:#fff;line-height:1.08;margin-bottom:18px;max-width:840px;}
+  .cover h1 span{color:var(--eu-gold);}
+  .cover-subtitle{font-size:16px;color:rgba(255,255,255,0.66);margin-bottom:46px;max-width:660px;}
+  .cover-meta{display:flex;gap:44px;flex-wrap:wrap;justify-content:center;}
+  .cover-meta-item .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--eu-gold);font-weight:700;}
+  .cover-meta-item .lbl{font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:2px;text-transform:uppercase;}
+  .cover-ph-bar{display:flex;align-items:center;gap:12px;margin-top:36px;padding:10px 24px;
+    border:1px solid rgba(255,255,255,0.15);border-radius:40px;color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:1.5px;}
+  .ph-dot{width:8px;height:8px;border-radius:50%;background:var(--eu-gold);opacity:0.7;}
+
+  .page{max-width:1240px;margin:0 auto;padding:48px 28px;}
+
+  .section-header{display:flex;align-items:center;gap:16px;margin:56px 0 34px;padding-bottom:16px;border-bottom:2px solid var(--eu-gold);}
+  .section-num{background:var(--eu-navy);color:var(--eu-gold);font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+    width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--eu-deep);line-height:1.2;}
+  .section-sub{font-size:13px;color:var(--text-light);margin-top:3px;}
+
+  .card{background:#fff;border-radius:16px;padding:26px 28px;margin-bottom:20px;box-shadow:0 2px 20px rgba(0,51,153,0.07);border:1px solid #EEF0FA;}
+  .card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--eu-deep);margin-bottom:12px;}
+  .card p{font-size:13px;color:var(--text-mid);margin-bottom:10px;}
+  .card ul{padding-left:18px;margin:6px 0 10px;}
+  .card li{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:6px;}
+  .card li strong{color:var(--eu-deep);}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin:6px 0 4px;}
+  .lg{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text-mid);}
+  .sw{width:16px;height:16px;border-radius:4px;flex-shrink:0;}
+
+  /* phase strip */
+  .phase-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px;}
+  .phase-cell{border-radius:10px;padding:12px 10px;color:#fff;font-size:11px;line-height:1.4;min-height:118px;display:flex;flex-direction:column;}
+  .phase-cell .pn{font-weight:700;font-size:10px;letter-spacing:1px;opacity:.85;text-transform:uppercase;}
+  .phase-cell .pt{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin:4px 0 6px;}
+  .phase-cell .pd{font-size:10.5px;opacity:.9;}
+
+  /* gantt */
+  .gantt{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px;table-layout:fixed;}
+  .gantt th{background:var(--eu-navy);color:#fff;font-weight:600;padding:6px 3px;font-size:9.5px;border:1px solid #fff;}
+  .gantt th.lane{background:var(--eu-deep);text-align:left;padding-left:10px;width:150px;font-size:10.5px;}
+  .gantt td{border:1px solid #EEF0FA;height:26px;padding:0;position:relative;}
+  .gantt td.lane{background:#FAFBFF;font-weight:700;color:var(--eu-deep);font-size:11px;padding-left:10px;text-align:left;}
+  .bar{position:absolute;top:4px;bottom:4px;border-radius:4px;font-size:9px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;white-space:nowrap;overflow:hidden;}
+  .mini-note{font-size:10.5px;color:var(--text-light);margin-top:8px;font-style:italic;}
+
+  /* timeline list */
+  .tl{position:relative;margin-top:8px;}
+  .tl-item{display:grid;grid-template-columns:118px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #EEF0FA;}
+  .tl-item:last-child{border-bottom:none;}
+  .tl-date{font-family:'Playfair Display',serif;font-weight:700;color:var(--eu-navy);font-size:14px;line-height:1.3;}
+  .tl-date small{display:block;font-family:'DM Sans';font-size:10px;color:var(--text-light);font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .tl-body h5{font-size:13.5px;color:var(--eu-deep);font-weight:700;margin-bottom:3px;}
+  .tl-body p{font-size:12.5px;color:var(--text-mid);margin:0;line-height:1.65;}
+  .chip{display:inline-block;font-size:9.5px;font-weight:700;padding:2px 9px;border-radius:20px;letter-spacing:.5px;margin-right:5px;color:#fff;vertical-align:middle;}
+  .chip.video{background:var(--c-video);} .chip.edit{background:var(--c-edit);} .chip.kol{background:var(--c-kol);}
+  .chip.support{background:var(--c-support);} .chip.event{background:var(--c-event);} .chip.ad{background:var(--c-ad);}
+  .chip.quiet{background:var(--c-quiet);} .chip.date{background:var(--eu-gold);color:var(--eu-deep);}
+
+  /* month block */
+  .month{background:#fff;border-radius:18px;overflow:hidden;margin-bottom:26px;box-shadow:0 2px 24px rgba(0,51,153,0.08);border:1px solid #EEF0FA;}
+  .month-head{background:linear-gradient(135deg,var(--eu-deep),#1A3A8F);color:#fff;padding:20px 28px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .month-head h3{font-family:'Playfair Display',serif;font-size:24px;color:#fff;}
+  .month-head .mtag{font-size:11px;color:var(--eu-gold);font-weight:700;letter-spacing:1px;}
+  .month-dates{background:#FFF9DB;border-bottom:1px solid #F0E4A8;padding:12px 28px;font-size:12px;color:#5A3900;}
+  .month-dates strong{color:#7B5200;}
+  .month-body{padding:8px 28px 22px;}
+
+  .ad-state{display:flex;align-items:center;gap:10px;padding:10px 28px;font-size:12px;font-weight:600;border-bottom:1px solid #EEF0FA;}
+  .ad-on{background:#FDEDEA;color:#9B2C2C;} .ad-light{background:#FEF6E7;color:#7B4E00;} .ad-off{background:#EEF0F6;color:#566;}
+
+  .callout{border-radius:12px;padding:16px 20px;margin:14px 0;font-size:13px;display:flex;gap:12px;align-items:flex-start;}
+  .callout .ic{font-size:20px;flex-shrink:0;}
+  .callout.warn{background:#FDEDEA;border:1px solid #E8B4AC;color:#7A2218;}
+  .callout.info{background:var(--eu-light);border:1px solid #C5D2F5;color:#1A3A8F;}
+  .callout.good{background:#E7F7F0;border:1px solid #A8DEC9;color:#13624A;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+  .sm-card{background:#FAFBFF;border-radius:12px;padding:16px 18px;border-left:4px solid var(--c-support);}
+  .sm-card h4{font-size:13.5px;color:var(--eu-deep);font-weight:700;margin-bottom:6px;}
+  .sm-card .meta{font-size:10.5px;color:var(--c-support);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+  .sm-card p{font-size:12px;color:var(--text-mid);line-height:1.6;margin:0;}
+
+  table.grid-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  table.grid-tbl th{background:var(--eu-navy);color:var(--eu-gold);text-align:left;padding:9px 12px;font-size:10px;letter-spacing:.5px;text-transform:uppercase;}
+  table.grid-tbl td{padding:9px 12px;border-bottom:1px solid #EEF0FA;color:var(--text-mid);vertical-align:top;}
+  table.grid-tbl tr:nth-child(even) td{background:#FAFBFF;}
+  table.grid-tbl td:first-child{font-weight:700;color:var(--eu-deep);}
+
+  footer{background:var(--eu-deep);color:rgba(255,255,255,0.5);text-align:center;padding:34px;font-size:11px;letter-spacing:.5px;margin-top:40px;}
+  footer span{color:var(--eu-gold);}
+
+  @media(max-width:900px){
+    .grid2,.grid3{grid-template-columns:1fr;}
+    .phase-strip{grid-template-columns:1fr 1fr;}
+    .cover h1{font-size:36px;}
+    .tl-item{grid-template-columns:1fr;gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">EU Delegation to the Philippines · GenEU 2026 · Brand Awareness Campaign</div>
+  <h1>6-Month Campaign <span>Calendar</span><br>October 2026 – March 2027</h1>
+  <p class="cover-subtitle">Main video launch · 5 themed edit-downs · paid ad flights (Facebook · Instagram · YouTube) · KOL community waves · field support measures · campus activations — sequenced around the EU and Philippine calendar.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="num">6</div><div class="lbl">Months Live</div></div>
+    <div class="cover-meta-item"><div class="num">1+5</div><div class="lbl">Main Video + Edit-Downs</div></div>
+    <div class="cover-meta-item"><div class="num">8–10</div><div class="lbl">Community KOLs</div></div>
+    <div class="cover-meta-item"><div class="num">5</div><div class="lbl">Activation Events</div></div>
+    <div class="cover-meta-item"><div class="num">3</div><div class="lbl">Ad Platforms (no TikTok)</div></div>
+  </div>
+  <div class="cover-ph-bar"><div class="ph-dot"></div><span>LEAD ARTIST: CUP OF JOE · CONFIDENTIAL — INTERNAL PLANNING · v1 JUNE 2026</span><div class="ph-dot"></div></div>
+</div>
+
+<div class="page">
+
+<!-- ░░ HOW TO READ ░░ -->
+<div class="section-header">
+  <div class="section-num">00</div>
+  <div><div class="section-title">How to Read This Calendar</div>
+  <div class="section-sub">The five moving parts of the campaign, colour-coded throughout this document</div></div>
+</div>
+
+<div class="card">
+  <p>This calendar sequences <strong>four campaign tactics</strong> from the approved strategy — (A) the Cup&nbsp;of&nbsp;Joe music-led main video, (B) the community-model KOL partnership, (C) support-measure beneficiary stories, and (D) campus activation events — plus the <strong>paid media flights</strong> that carry them. Nothing is plotted at random: every drop is anchored either to an <strong>EU thematic date</strong> (ErasmusDays, Human Rights Day, Education Day, Women's Day) or a <strong>Philippine cultural moment</strong> (Christmas peak, Sinulog, EDSA, Women's Month) — and deliberately pulled <em>away</em> from the late-October election period and Undas.</p>
+  <div class="legend">
+    <div class="lg"><span class="sw" style="background:var(--c-video)"></span>Main Video (Cup of Joe)</div>
+    <div class="lg"><span class="sw" style="background:var(--c-edit)"></span>Edit-Down / Nugget</div>
+    <div class="lg"><span class="sw" style="background:var(--c-kol)"></span>KOL Go-Live Wave</div>
+    <div class="lg"><span class="sw" style="background:var(--c-support)"></span>Support Measure (shoot / air)</div>
+    <div class="lg"><span class="sw" style="background:var(--c-event)"></span>Activation Event</div>
+    <div class="lg"><span class="sw" style="background:var(--c-ad)"></span>Paid Ad Flight (FB·IG·YT)</div>
+    <div class="lg"><span class="sw" style="background:var(--c-quiet)"></span>Quiet / Brand-Safety Window</div>
+    <div class="lg"><span class="sw" style="background:var(--eu-gold)"></span>EU / PH Significant Date</div>
+  </div>
+  <div class="callout warn" style="margin-top:18px;">
+    <div class="ic">⚠️</div>
+    <div><strong>Two hard constraints shape the whole shape of this plan:</strong><br>
+    <strong>1. Election window.</strong> Barangay &amp; SK Elections are scheduled for <strong>2&nbsp;Nov&nbsp;2026</strong> (also All Souls'/Undas). The official campaign period and result-day run through late October. Per the 2025 lesson-learned on operating in a "highly charged socio-political environment," the EU goes <strong>organic-only / non-political</strong> from ~26 Oct to ~4 Nov — no boosted political-adjacent creative, no activations. The democracy/governance theme is held until <strong>after</strong> the election (late Feb, around EDSA).<br>
+    <strong>2. No TikTok on EU-owned ads.</strong> All <em>paid</em> media runs on Facebook, Instagram and YouTube only. KOLs and Cup of Joe still post organically to their own TikTok — that reach is free and on-brand, it is simply never behind EU ad spend.</div>
+  </div>
+</div>
+
+<!-- ░░ 01 STRATEGIC SPINE ░░ -->
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div><div class="section-title">The Strategic Spine — 7 Phases</div>
+  <div class="section-sub">How the six months build: from launch bang → quiet → proof → holiday emotion → re-engagement → values finale</div></div>
+</div>
+
+<div class="card">
+  <div class="phase-strip">
+    <div class="phase-cell" style="background:#5A6B8C;"><div class="pn">Phase 0</div><div class="pt">Tease</div><div class="pd">Late Sep – 11 Oct. Countdown, BTS from the shoot, follower-base build (+15K target).</div></div>
+    <div class="phase-cell" style="background:var(--eu-navy);"><div class="pn">Phase 1</div><div class="pt">Launch</div><div class="pd">12–25 Oct. Main video drops on ErasmusDays week. Heaviest reach flight. Activation #1.</div></div>
+    <div class="phase-cell" style="background:var(--c-quiet);"><div class="pn">Phase 2</div><div class="pt">Quiet</div><div class="pd">26 Oct – 4 Nov. Election + Undas. Organic only, non-political. Song keeps streaming.</div></div>
+    <div class="phase-cell" style="background:#2C6FB0;"><div class="pn">Phase 3</div><div class="pt">Proof</div><div class="pd">5 Nov – 14 Dec. Edit-downs 1–2, KOL waves 2–3, first beneficiary stories. Activations #2–3.</div></div>
+    <div class="phase-cell" style="background:var(--c-video);"><div class="pn">Phase 4</div><div class="pt">Emotion</div><div class="pd">15 Dec – 6 Jan. Human Rights Day + Christmas peak. Aspirational "future for youth" content.</div></div>
+    <div class="phase-cell" style="background:#1E6E8E;"><div class="pn">Phase 5</div><div class="pt">Re-engage</div><div class="pd">7 Jan – 24 Feb. Education Day + FTA. Edit-downs 3–4, support-measure heavy, KOL wave 4. Activation #4.</div></div>
+    <div class="phase-cell" style="background:#13624A;"><div class="pn">Phase 6</div><div class="pt">Values</div><div class="pd">25 Feb – 31 Mar. EDSA + Women's Month. Democracy nugget, female KOLs, recap. Activation #5.</div></div>
+  </div>
+  <p class="mini-note">Reach is front-loaded (Phase 1), Views build through the middle (Phases 3–5), and Engagement / click-throughs / new-follower KPIs are harvested late (Phases 5–6) once the audience already knows and trusts the campaign.</p>
+</div>
+
+<!-- ░░ 02 MEDIA FLIGHT PLAN ░░ -->
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div><div class="section-title">Paid Media Flight Plan</div>
+  <div class="section-sub">Pulsed (not continuous) ad spend on Facebook · Instagram · YouTube — pausing for the election and respecting holidays</div></div>
+</div>
+
+<div class="card" style="overflow-x:auto;">
+  <table class="gantt">
+    <thead>
+      <tr>
+        <th class="lane">Lane ↓ &nbsp;/ &nbsp;Month →</th>
+        <th>Oct</th><th>Nov</th><th>Dec</th><th>Jan</th><th>Feb</th><th>Mar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="lane">Main Video</td>
+        <td><div class="bar" style="left:38%;right:0;background:var(--c-video)">LAUNCH</div></td>
+        <td></td><td></td><td></td><td></td>
+        <td><div class="bar" style="left:30%;right:8%;background:var(--c-video)">RECAP</div></td></tr>
+      <tr><td class="lane">Edit-Downs</td>
+        <td></td>
+        <td><div class="bar" style="left:8%;width:26%;background:var(--c-edit)">#1</div><div class="bar" style="left:58%;width:26%;background:var(--c-edit)">#2</div></td>
+        <td></td>
+        <td><div class="bar" style="left:62%;width:30%;background:var(--c-edit)">#3</div></td>
+        <td><div class="bar" style="left:18%;width:26%;background:var(--c-edit)">#4</div><div class="bar" style="left:74%;right:2%;background:var(--c-edit)">#5</div></td>
+        <td></td></tr>
+      <tr><td class="lane">KOL Waves</td>
+        <td><div class="bar" style="left:40%;right:18%;background:var(--c-kol)">W1</div></td>
+        <td><div class="bar" style="left:20%;right:6%;background:var(--c-kol)">W2</div></td>
+        <td><div class="bar" style="left:0;width:42%;background:var(--c-kol)">W3</div></td>
+        <td><div class="bar" style="left:30%;right:0;background:var(--c-kol)">W4</div></td>
+        <td><div class="bar" style="left:0;right:0;background:var(--c-kol)">W5 ♀</div></td>
+        <td><div class="bar" style="left:0;width:55%;background:var(--c-kol)">W5 ♀</div></td></tr>
+      <tr><td class="lane">Support Measures</td>
+        <td><div class="bar" style="left:0;right:0;background:var(--c-support);opacity:.55">SHOOT</div></td>
+        <td><div class="bar" style="left:30%;right:0;background:var(--c-support)">AIR</div></td>
+        <td><div class="bar" style="left:0;right:0;background:var(--c-support)">AIR</div></td>
+        <td><div class="bar" style="left:0;right:0;background:var(--c-support)">AIR</div></td>
+        <td><div class="bar" style="left:0;right:0;background:var(--c-support)">AIR</div></td>
+        <td><div class="bar" style="left:0;right:30%;background:var(--c-support)">AIR</div></td></tr>
+      <tr><td class="lane">Activations</td>
+        <td><div class="bar" style="left:42%;width:18%;background:var(--c-event)">#1</div></td>
+        <td><div class="bar" style="left:40%;width:18%;background:var(--c-event)">#2</div></td>
+        <td><div class="bar" style="left:8%;width:18%;background:var(--c-event)">#3</div></td>
+        <td><div class="bar" style="left:60%;width:18%;background:var(--c-event)">#4</div></td>
+        <td></td>
+        <td><div class="bar" style="left:20%;width:20%;background:var(--c-event)">#5</div></td></tr>
+      <tr><td class="lane">Paid Ads (FB·IG·YT)</td>
+        <td><div class="bar" style="left:38%;right:18%;background:var(--c-ad)">FLIGHT 1</div><div class="bar" style="left:84%;right:0;background:var(--c-quiet)">▦</div></td>
+        <td><div class="bar" style="left:0;width:14%;background:var(--c-quiet)">▦</div><div class="bar" style="left:16%;right:0;background:var(--c-ad)">FLIGHT 2</div></td>
+        <td><div class="bar" style="left:0;width:66%;background:var(--c-ad)">FLIGHT 2</div><div class="bar" style="left:68%;right:0;background:var(--c-ad);opacity:.5">light</div></td>
+        <td><div class="bar" style="left:0;width:12%;background:var(--c-ad);opacity:.5">light</div><div class="bar" style="left:14%;right:0;background:var(--c-ad)">FLIGHT 3</div></td>
+        <td><div class="bar" style="left:0;right:0;background:var(--c-ad)">FLIGHT 3</div></td>
+        <td><div class="bar" style="left:0;width:80%;background:var(--c-ad)">FLIGHT 4 (retarget)</div></td></tr>
+    </tbody>
+  </table>
+  <p class="mini-note">▦ = election / Undas quiet window (organic only). Flights are <strong>pulsed</strong>: 4 paid bursts over ~5 active months rather than continuous spend. Pulsing holds ad frequency where it matters, conserves budget for the launch and finale, and keeps the EU dark during the politically sensitive window. Objective per flight: <strong>F1 = Reach/Awareness</strong>, <strong>F2 = ThruPlay/Views</strong>, <strong>F3 = Engagement + Traffic (click-through to Global Gateway info)</strong>, <strong>F4 = Retargeting → Page Follows + conversions</strong>.</p>
+</div>
+
+<!-- ░░ 03 ASSET RELEASE ░░ -->
+<div class="section-header">
+  <div class="section-num">03</div>
+  <div><div class="section-title">Asset Release Schedule — Main Video + 5 Edit-Downs</div>
+  <div class="section-sub">Each edit-down carries one EU programme theme and is timed to a relevant date · all close with "Ito ang EU — para sa atin."</div></div>
+</div>
+
+<div class="card">
+  <div class="tl">
+    <div class="tl-item"><div class="tl-date">12–17 Oct<small>ErasmusDays</small></div>
+      <div class="tl-body"><h5><span class="chip video">MAIN VIDEO</span> Hero launch — "GenEU" OPM music video (Cup of Joe)</h5>
+      <p>Full music video premieres on YouTube; 60–90s hero cut on FB &amp; IG Reels; song goes live on Spotify / YT Music. Launched in ErasmusDays week so the very first association is education &amp; youth opportunity — apolitical, on-brand, and clear of the election window two weeks later.</p></div></div>
+
+    <div class="tl-item"><div class="tl-date">6 Nov<small>Post-election</small></div>
+      <div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #1</span> "Generation You" — Youth &amp; Opportunity</h5>
+      <p>The emotional core nugget — jobs, cost-of-living, a future worth staying for. First asset after the quiet window; hopeful, unifying, deliberately non-political to re-open the campaign gently.</p></div></div>
+
+    <div class="tl-item"><div class="tl-date">20 Nov<small>Children's Day · COP season</small></div>
+      <div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #2</span> "Para sa Kinabukasan" — Green / Climate</h5>
+      <p>Renewable energy, climate resilience, the green transition. Timed to the November climate-summit news cycle and World Children's Day (intergenerational framing).</p></div></div>
+
+    <div class="tl-item"><div class="tl-date">22 Jan<small>Int'l Day of Education 24 Jan</small></div>
+      <div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #3</span> "Mula Pinas Para sa Mundo" — Scholarships / Erasmus+</h5>
+      <p>Erasmus+ and education cooperation. Pairs directly with the Erasmus+ alumni beneficiary story (Support Measure B). Strongest single-theme proof point of the campaign.</p></div></div>
+
+    <div class="tl-item"><div class="tl-date">10 Feb<small>Rides EU–PH FTA momentum</small></div>
+      <div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #4</span> "Trabaho at Tiwala" — Trade · Digital · Jobs</h5>
+      <p>Global Gateway digital package, MSMEs, the EU–PH trade partnership and the jobs it creates. Timed to the real-world FTA / "digital connectivity hub" news the audience is already hearing.</p></div></div>
+
+    <div class="tl-item"><div class="tl-date">24 Feb<small>EDSA anniversary 25 Feb</small></div>
+      <div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #5</span> "Magkasama Tayo" — Democracy · Rights · Partnership</h5>
+      <p>Held until <strong>after</strong> the election so the values/governance theme reads as principled, not partisan. Anchored to EDSA's democracy commemoration. Closes the thematic set.</p></div></div>
+
+    <div class="tl-item"><div class="tl-date">10–20 Mar<small>Women's Month</small></div>
+      <div class="tl-body"><h5><span class="chip video">RECAP CUT</span> Campaign wrap / "thank-you" reel</h5>
+      <p>A short recap stitching MV moments, beneficiary faces, and activation highlights — the trust-building bow that hands off to the 2027 phase. Anchored to Women's Month with female KOL amplification.</p></div></div>
+  </div>
+</div>
+
+<!-- ░░ 04 KOL WAVES ░░ -->
+<div class="section-header">
+  <div class="section-num">04</div>
+  <div><div class="section-title">KOL Go-Live Waves — Community Model</div>
+  <div class="section-sub">8–10 secondary KOLs each post 1 original Reel/TikTok in their own voice, cross-posted to EU channels · staggered to sustain 6 months of fresh content</div></div>
+</div>
+
+<div class="card">
+  <p>KOLs are released in <strong>five waves</strong> rather than all at once — this keeps a steady drumbeat of fresh, authentic content across the whole campaign instead of one spike. Each wave is matched to the theme and audience live at that moment. <strong>No KOL posts EU content during the 26 Oct – 4 Nov quiet window.</strong></p>
+  <table class="grid-tbl">
+    <thead><tr><th>Wave</th><th>Window</th><th>KOLs</th><th>Why these, why now</th></tr></thead>
+    <tbody>
+      <tr><td>W1 — Launch amplify</td><td>14–22 Oct</td><td>Maymay Entrata · Julian Trono</td><td>Music-first creators closest to the MV; Maymay adds Mindanao reach, Julian adds Gen-Z. They echo the song in ErasmusDays week.</td></tr>
+      <tr><td>W2 — Dance &amp; reach</td><td>10–25 Nov</td><td>AC Bonifacio · Kyle Echarri</td><td>AC drives the signature-choreography challenge; Kyle unlocks a rare male-skewing audience. Re-opens KOL activity after the quiet window.</td></tr>
+      <tr><td>W3 — Broaden &amp; regionalise</td><td>1–12 Dec</td><td>Robi Domingo · Eya Borja</td><td>Robi broadens to family/GMA mainstream into the holidays; Eya carries Cebu/Visayas + a Human-Rights-Day-week dignity/lifestyle angle.</td></tr>
+      <tr><td>W4 — Credibility &amp; culture</td><td>12–28 Jan</td><td>Janine Gutierrez · Charlie Dizon</td><td>Educated-female &amp; film/arts audiences for Education Day and the run-up to National Arts Month — pairs with the scholarships nugget.</td></tr>
+      <tr><td>W5 — Women's Month</td><td>Feb – Mar</td><td>Belle Mariano · Andrea Brillantes (+ female leads)</td><td>Female-forward finale across IWD/Women's Month; highest-reach macro names anchor the trust-building close. (Both now sit in the Mega/Macro pool.)</td></tr>
+    </tbody>
+  </table>
+  <p class="mini-note">Cup of Joe (lead band) posts across the whole period on their own channels — they are the through-line, not a wave. KOL roster &amp; tiers are detailed in the Mega/Macro dossier.</p>
+</div>
+
+<!-- ░░ 05 SUPPORT MEASURES ░░ -->
+<div class="section-header">
+  <div class="section-num">05</div>
+  <div><div class="section-title">Support Measures — The Proof Layer</div>
+  <div class="section-sub">Field-shot beneficiary stories from real EU projects of the last 5–7 years · what to capture, when to shoot, when to air, how to position</div></div>
+</div>
+
+<div class="card">
+  <h3>Positioning logic — why support measures come <em>second</em></h3>
+  <p>The music video and KOLs create <strong>awareness and good feeling</strong>; support measures supply the <strong>evidence</strong> that earns trust. So they are sequenced behind the launch wave: the audience first falls for the song, then — when they ask "but what has the EU actually done for us?" — the beneficiary stories are the receipts. They are <strong>EU-owned-channel organic content, lightly boosted</strong> (cheap engagement/traffic objective), and they are the campaign's primary driver of the <strong>90K click-throughs</strong> KPI — every story links to a Global Gateway info page.</p>
+  <div class="callout info"><div class="ic">🎬</div><div><strong>Production reality:</strong> these must be shot in the field <em>before</em> they air. Field shoots run <strong>Sept–Dec 2026</strong> (front-loaded while crews mobilise); stories air <strong>Nov 2026 – Mar 2027</strong>. Shoot across <strong>Luzon · Visayas · Mindanao</strong> for national spread and to feed regional KOLs (e.g. Cebu story ↔ Eya Borja; Mindanao story ↔ Maymay).</div></div>
+
+  <h3 style="margin-top:18px;">The 7 capture categories</h3>
+  <div class="grid2">
+    <div class="sm-card"><div class="meta">Air: Nov · pairs w/ Edit-Down #2</div><h4>A · Green Transition &amp; Climate</h4><p>Renewable-energy sites, e-mobility, climate-resilient farming/fishing, biodiversity. <em>Capture:</em> a young farmer, fisherfolk or engineer whose livelihood improved through an EU green project. 30–60s vertical testimonial + B-roll of the installation.</p></div>
+    <div class="sm-card"><div class="meta">Air: Jan · pairs w/ Edit-Down #3</div><h4>B · Education · Erasmus+ · TVET</h4><p>Erasmus+ alumni, scholars, skills-training graduates. <em>Capture:</em> "from [province] to Europe and back" — a scholar's arc and what they're building at home now. The single strongest proof story; lead it on Int'l Day of Education.</p></div>
+    <div class="sm-card"><div class="meta">Air: Feb · pairs w/ Edit-Down #4</div><h4>C · Digital &amp; Connectivity · Jobs</h4><p>Digital-skills grads, start-ups, the Global Gateway digital package. <em>Capture:</em> a young digital entrepreneur or coder whose job exists because of EU-backed connectivity. Tie to the "digital connectivity hub" narrative.</p></div>
+    <div class="sm-card"><div class="meta">Air: Feb–Mar · pairs w/ FTA + Women's Month</div><h4>D · Trade · Livelihood · MSMEs</h4><p>EU-supported MSMEs and value chains — coffee &amp; cacao especially (a neat wink to a band named Cup of Joe). <em>Capture:</em> a woman-led co-op or exporter benefiting from EU trade support.</p></div>
+    <div class="sm-card"><div class="meta">Air: late Feb · pairs w/ Edit-Down #5 (post-election)</div><h4>E · Governance · Rights · Peace</h4><p>Rule-of-law, civil-society, BARMM/Mindanao peace-building. <em>Most sensitive — frame around people, not politics;</em> hold until after the election and air around EDSA / Human Rights week with careful, neutral language.</p></div>
+    <div class="sm-card"><div class="meta">Air: always-on B-roll</div><h4>F · Youth · Culture · People-to-People</h4><p>Youth exchange, cultural &amp; sports cooperation. Cross-cutting connective tissue between heavier stories; great for Reels/Stories filler and activation recaps.</p></div>
+    <div class="sm-card"><div class="meta">Air: Mar · Women's Month / IWD</div><h4>G · Gender · Health · Inclusion</h4><p>Gender-equality programmes, health, disability inclusion. <em>Capture:</em> a woman or PWD whose opportunity opened through an EU programme — anchors the Women's-Month finale and the recap cut.</p></div>
+  </div>
+  <p class="mini-note">Format spec for all: 30–60s vertical, real Filipino voice in conversational Filipino, location super, EU + Global Gateway lockup, closing line "Ito ang EU — para sa atin," and a link/CTA to the Global Gateway info page.</p>
+</div>
+
+<!-- ░░ 06 MONTH BY MONTH ░░ -->
+<div class="section-header">
+  <div class="section-num">06</div>
+  <div><div class="section-title">Month-by-Month Calendar</div>
+  <div class="section-sub">October 2026 → March 2027 · significant dates + the week-by-week action plan · (a full day-by-day grid is in the companion Excel file)</div></div>
+</div>
+
+<!-- OCTOBER -->
+<div class="month">
+  <div class="month-head"><h3>October 2026</h3><div class="mtag">PHASE 0–1–2 · TEASE → LAUNCH → QUIET</div></div>
+  <div class="month-dates"><strong>Key dates:</strong> Oct 1 IP/Consumer Welfare Month begins · <strong>Oct 5 World Teachers' Day</strong> · <strong>Oct 12–17 ErasmusDays ◀ LAUNCH</strong> · Oct 24 UN Day · <strong>Oct 26–31 election quiet begins</strong> · Oct 31 All Saints' Eve</div>
+  <div class="ad-state ad-on">● Paid: FLIGHT 1 (Reach/Awareness) live 12–25 Oct → then OFF for election quiet</div>
+  <div class="month-body">
+    <div class="tl">
+      <div class="tl-item"><div class="tl-date">Wk 1<small>1–4 Oct</small></div><div class="tl-body"><h5><span class="chip date">TEASE</span> Countdown &amp; BTS</h5><p>Cup of Joe teaser clips, "something's coming" cards, behind-the-scenes from the shoot. Push EU-page follower growth (toward +15K). World Teachers' Day (5 Oct) soft education post.</p></div></div>
+      <div class="tl-item"><div class="tl-date">Wk 2<small>12–17 Oct</small></div><div class="tl-body"><h5><span class="chip video">MAIN VIDEO</span> <span class="chip ad">FLIGHT 1</span> <span class="chip event">ACTIVATION #1</span> <span class="chip kol">WAVE 1</span></h5><p>Hero launch in ErasmusDays week — MV on YouTube, hero cut on FB/IG, song on streaming. Reach flight opens. First campus activation (Erasmus+ themed). Maymay + Julian amplify.</p></div></div>
+      <div class="tl-item"><div class="tl-date">Wk 3<small>18–25 Oct</small></div><div class="tl-body"><h5><span class="chip ad">FLIGHT 1</span> <span class="chip support">SHOOT</span> Peak reach push</h5><p>Sustain the launch flight at peak frequency. Field shoots continue nationwide. Begin tapering political-adjacent creative ahead of the quiet window.</p></div></div>
+      <div class="tl-item"><div class="tl-date">Wk 4<small>26–31 Oct</small></div><div class="tl-body"><h5><span class="chip quiet">QUIET BEGINS</span> Organic only</h5><p>Pause paid pushes and activations. Song keeps streaming organically. No political content. Prep (don't publish) November assets.</p></div></div>
+    </div>
+    <div class="callout good"><div class="ic">✅</div><div><strong>Why launch mid-October:</strong> ErasmusDays gives a ready-made, apolitical youth/education news peg; it lands the campaign cleanly <em>two weeks before</em> the election quiet window, so the launch gets a full, uninterrupted reach burst.</div></div>
+  </div>
+</div>
+
+<!-- NOVEMBER -->
+<div class="month">
+  <div class="month-head"><h3>November 2026</h3><div class="mtag">PHASE 2 → 3 · QUIET → PROOF</div></div>
+  <div class="month-dates"><strong>Key dates:</strong> <strong>Nov 1 All Saints' / Nov 2 All Souls' + BARANGAY &amp; SK ELECTION DAY</strong> · Nov 20 World Children's Day · climate-summit season · <strong>Nov 25 start of 16 Days vs GBV</strong> · Nov 30 Bonifacio Day</div>
+  <div class="ad-state ad-off">○ Paid: OFF 1–4 Nov (election/Undas) → FLIGHT 2 (Views) opens ~5 Nov</div>
+  <div class="month-body">
+    <div class="tl">
+      <div class="tl-item"><div class="tl-date">1–4 Nov<small>Election + Undas</small></div><div class="tl-body"><h5><span class="chip quiet">HARD QUIET</span> No posting / no ads</h5><p>Respect Undas and election day. At most one tasteful, non-political remembrance post. Absolutely no boosted content, no activations.</p></div></div>
+      <div class="tl-item"><div class="tl-date">5–9 Nov<small>Re-open</small></div><div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #1</span> <span class="chip ad">FLIGHT 2</span> "Generation You"</h5><p>Re-open with the hopeful youth/opportunity nugget. Views-objective flight begins on FB/IG/YT.</p></div></div>
+      <div class="tl-item"><div class="tl-date">10–25 Nov<small>KOL + climate</small></div><div class="tl-body"><h5><span class="chip kol">WAVE 2</span> <span class="chip support">AIR: Green</span> <span class="chip event">ACTIVATION #2</span></h5><p>AC Bonifacio choreography challenge + Kyle Echarri. First beneficiary story (Green/Climate) airs into the climate news cycle. Second campus activation.</p></div></div>
+      <div class="tl-item"><div class="tl-date">20 Nov<small>Children's Day</small></div><div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #2</span> "Para sa Kinabukasan"</h5><p>Green/climate nugget, intergenerational framing on World Children's Day.</p></div></div>
+    </div>
+    <div class="callout warn"><div class="ic">🗳️</div><div><strong>Election note:</strong> if BSKE is postponed to 2027 (currently under debate), the 1–4 Nov hard-quiet can be relaxed to a normal holiday-light posture — but keep Undas (1–2 Nov) respectful regardless. Plan assumes the election proceeds.</div></div>
+  </div>
+</div>
+
+<!-- DECEMBER -->
+<div class="month">
+  <div class="month-head"><h3>December 2026</h3><div class="mtag">PHASE 3 → 4 · PROOF → EMOTION</div></div>
+  <div class="month-dates"><strong>Key dates:</strong> <strong>Dec 1 Global Gateway anniversary</strong> · Dec 3 Day of Persons w/ Disabilities · <strong>Dec 10 Human Rights Day</strong> · <strong>Dec 25 Christmas</strong> · Dec 30 Rizal Day</div>
+  <div class="ad-state ad-on">● Paid: FLIGHT 2 (Views) through ~20 Dec → light always-on over the holidays</div>
+  <div class="month-body">
+    <div class="tl">
+      <div class="tl-item"><div class="tl-date">1–12 Dec<small>GG anniversary · HR week</small></div><div class="tl-body"><h5><span class="chip kol">WAVE 3</span> <span class="chip support">AIR</span> Robi + Eya · Human Rights Day</h5><p>Global Gateway anniversary (Dec 1) content. Robi (mainstream/family) + Eya (Cebu/Visayas). Human Rights Day (Dec 10) handled with a dignity/people angle — not politics.</p></div></div>
+      <div class="tl-item"><div class="tl-date">13–20 Dec<small>Christmas build</small></div><div class="tl-body"><h5><span class="chip event">ACTIVATION #3</span> <span class="chip ad">FLIGHT 2</span> Pre-holiday campus push</h5><p>Third activation before campuses break. Maintain views flight; lean into warm, festive cuts of the song.</p></div></div>
+      <div class="tl-item"><div class="tl-date">21 Dec–6 Jan<small>Holiday peak</small></div><div class="tl-body"><h5><span class="chip video">EMOTION</span> Light always-on · aspirational</h5><p>Family time = lighter hard-promo, but the song and "future for youth" emotional content over-perform. Keep spend light/always-on; let organic + streaming carry. New Year hope message.</p></div></div>
+    </div>
+    <div class="callout info"><div class="ic">🎄</div><div><strong>The "ber-months" peak:</strong> Filipino social engagement is at its yearly high through the Christmas season — ideal for emotional reach, but pull back on overt asks. Sell feeling, not information, in late December.</div></div>
+  </div>
+</div>
+
+<!-- JANUARY -->
+<div class="month">
+  <div class="month-head"><h3>January 2027</h3><div class="mtag">PHASE 5 · RE-ENGAGE</div></div>
+  <div class="month-dates"><strong>Key dates:</strong> Jan 1 New Year · <strong>Jan 17 Sinulog (Cebu)</strong> · Feast of Sto. Niño / Ati-Atihan · <strong>Jan 24 Int'l Day of Education</strong></div>
+  <div class="ad-state ad-on">● Paid: light → FLIGHT 3 (Engagement + Traffic) opens ~7 Jan</div>
+  <div class="month-body">
+    <div class="tl">
+      <div class="tl-item"><div class="tl-date">7–16 Jan<small>Back to school/work</small></div><div class="tl-body"><h5><span class="chip ad">FLIGHT 3</span> <span class="chip support">AIR</span> Re-engagement opens</h5><p>Audience back online after holidays. Engagement/traffic flight begins; support-measure stories step up as the proof layer driving click-throughs.</p></div></div>
+      <div class="tl-item"><div class="tl-date">17 Jan<small>Sinulog</small></div><div class="tl-body"><h5><span class="chip kol">Regional</span> Eya Borja · Visayas moment</h5><p>Sinulog regional content from Cebu — ride the festival reach with a Visayas beneficiary story.</p></div></div>
+      <div class="tl-item"><div class="tl-date">22–28 Jan<small>Education Day 24 Jan</small></div><div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #3</span> <span class="chip support">AIR: Erasmus+</span> <span class="chip kol">WAVE 4</span> <span class="chip event">ACTIVATION #4</span></h5><p>Scholarships nugget + Erasmus+ alumni story on Int'l Day of Education. Janine + Charlie (Wave 4). Fourth campus activation (scholarships fair tie-in).</p></div></div>
+    </div>
+    <div class="callout good"><div class="ic">🎓</div><div><strong>January is the education month:</strong> Int'l Day of Education (24 Jan) is the natural home for the Erasmus+ scholarship proof point — the campaign's most concrete, most shareable EU-PH benefit. Concentrate the strongest beneficiary story here.</div></div>
+  </div>
+</div>
+
+<!-- FEBRUARY -->
+<div class="month">
+  <div class="month-head"><h3>February 2027</h3><div class="mtag">PHASE 5 → 6 · PROOF → VALUES</div></div>
+  <div class="month-dates"><strong>Key dates:</strong> National Arts Month (all Feb) · <strong>Feb 6 Chinese New Year</strong> · Feb 14 Valentine's · Feb 20 Day of Social Justice · <strong>Feb 25 EDSA People Power Anniversary</strong></div>
+  <div class="ad-state ad-on">● Paid: FLIGHT 3 (Engagement + Traffic) full month</div>
+  <div class="month-body">
+    <div class="tl">
+      <div class="tl-item"><div class="tl-date">3–10 Feb<small>FTA momentum</small></div><div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #4</span> <span class="chip support">AIR: Digital/Trade</span> "Trabaho at Tiwala"</h5><p>Trade/digital/jobs nugget riding the EU–PH FTA news cycle; digital-economy beneficiary story. Valentine's (14 Feb) = "partnership/connection" creative angle.</p></div></div>
+      <div class="tl-item"><div class="tl-date">11–23 Feb<small>Arts Month · CNY</small></div><div class="tl-body"><h5><span class="chip kol">WAVE 5 ♀ opens</span> <span class="chip support">AIR: MSME/Women</span></h5><p>National Arts Month → Charlie Dizon culture content. Belle Mariano / Andrea Brillantes begin the female-led wave. MSME/women-entrepreneur trade story.</p></div></div>
+      <div class="tl-item"><div class="tl-date">24–28 Feb<small>EDSA 25 Feb</small></div><div class="tl-body"><h5><span class="chip edit">EDIT-DOWN #5</span> <span class="chip support">AIR: Governance</span> "Magkasama Tayo"</h5><p>Now safely post-election: the democracy/rights/partnership nugget + governance/peace beneficiary story, anchored to EDSA's democracy commemoration with neutral, people-first framing.</p></div></div>
+    </div>
+    <div class="callout info"><div class="ic">🤝</div><div><strong>Why democracy waits until February:</strong> launching a governance/rights message during or just after a live election would read as partisan. Holding it to EDSA (post-election) lets the EU speak to shared democratic values as principle, not campaigning.</div></div>
+  </div>
+</div>
+
+<!-- MARCH -->
+<div class="month">
+  <div class="month-head"><h3>March 2027</h3><div class="mtag">PHASE 6 · VALUES FINALE</div></div>
+  <div class="month-dates"><strong>Key dates:</strong> <strong>Women's Month (all March)</strong> · <strong>Mar 8 Int'l Women's Day</strong> · Mar 22 World Water Day · campaign wrap end-March</div>
+  <div class="ad-state ad-on">● Paid: FLIGHT 4 (Retargeting → Page Follows + conversions) to ~25 Mar</div>
+  <div class="month-body">
+    <div class="tl">
+      <div class="tl-item"><div class="tl-date">1–8 Mar<small>IWD 8 Mar</small></div><div class="tl-body"><h5><span class="chip kol">WAVE 5 ♀</span> <span class="chip support">AIR: Gender/Inclusion</span> <span class="chip event">ACTIVATION #5</span></h5><p>Women's-Month peak — female KOLs (Belle, Andrea, + leads), gender-equality beneficiary story, final campus activation. IWD (8 Mar) is the emotional high point of the finale.</p></div></div>
+      <div class="tl-item"><div class="tl-date">10–20 Mar<small>Recap</small></div><div class="tl-body"><h5><span class="chip video">RECAP CUT</span> <span class="chip ad">FLIGHT 4</span> Thank-you reel</h5><p>Recap/gratitude reel stitched from MV + beneficiary faces + activations. Retargeting flight converts warm audiences into EU-page follows (toward +15K) and Global Gateway click-throughs.</p></div></div>
+      <div class="tl-item"><div class="tl-date">21–31 Mar<small>Wrap</small></div><div class="tl-body"><h5><span class="chip date">CLOSE</span> Reporting &amp; hand-off</h5><p>Wind down spend, harvest final metrics, compile the campaign report, and hand off to the 2027 "deepening engagement / trust" phase.</p></div></div>
+    </div>
+    <div class="callout good"><div class="ic">🎯</div><div><strong>Finale logic:</strong> by March the audience already knows the song and the message — so March is built to <em>convert</em> (follows, click-throughs, saves) rather than to introduce. That's why the retargeting flight and the trust-building recap live here, not at launch.</div></div>
+  </div>
+</div>
+
+<!-- ░░ 07 KPI PACING ░░ -->
+<div class="section-header">
+  <div class="section-num">07</div>
+  <div><div class="section-title">How the Calendar Serves the KPIs</div>
+  <div class="section-sub">Each objective is harvested in the phase where it is cheapest and most natural to win</div></div>
+</div>
+<div class="card">
+  <table class="grid-tbl">
+    <thead><tr><th>KPI (2026 target)</th><th>Primary phase</th><th>How this calendar delivers it</th></tr></thead>
+    <tbody>
+      <tr><td>Reach — 40M</td><td>Phase 1 (Launch)</td><td>Front-loaded reach flight in ErasmusDays week + Cup of Joe organic + Wave 1 KOLs hit unique-user reach early while novelty is highest.</td></tr>
+      <tr><td>Views — 36M</td><td>Phases 3–5</td><td>Edit-downs #1–#4 on a sustained ThruPlay flight Nov–Feb; short nuggets + reels = high completion (the 62% Meta uplift cited in the brief).</td></tr>
+      <tr><td>Engagement — 4.2M</td><td>Phases 5–6</td><td>Support-measure proof + dance challenge + female-led Women's-Month wave drive comments/shares once trust is built.</td></tr>
+      <tr><td>Click-throughs — 90K</td><td>Phases 5–6</td><td>Every support-measure story links to the Global Gateway info page; Flight 3 traffic objective + Flight 4 retargeting concentrate the asks late.</td></tr>
+      <tr><td>New page follows — +15K</td><td>Phase 0 + Phase 6</td><td>Tease-phase follower build at the top; retargeting conversion flight at the close captures warm audiences into follows.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<footer>
+  <strong style="color:var(--eu-gold);">EU Delegation to the Philippines</strong> · GenEU 2026 Campaign Calendar · Oct 2026 – Mar 2027<br>
+  Lead artist: Cup of Joe · Platforms: Facebook · Instagram · YouTube · <span>Confidential — Internal Campaign Planning</span><br>
+  <span style="font-size:10px;color:rgba(255,255,255,0.35);">v1 · June 2026 · Companion day-by-day grid available in the accompanying Excel file. Dates verified against ErasmusDays 2026 (12–17 Oct), BSKE election (2 Nov 2026), and the EU/PH thematic calendar.</span>
+</footer>
+
+</body>
+</html>
